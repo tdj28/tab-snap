@@ -1,0 +1,152 @@
+body {
+
+        font-family:  Arial, Helvetica, sans-serif; margin-right:30px;
+        background-color:  #F7F7F7;
+        }
+
+
+#content{padding:10px; margin:2px;  float:right;}
+#clipboardBuffer{position:absolute; top:-9999px; left:-9999px; width:0; height:0;}
+a {color #9d0000; text-decoration: none;}
+a: line{color:black;}
+a: visited {color:black;}
+a: active{color:black;}
+
+ul#navlist {margin-left: 0; padding-left: 0; white-space: nowrap; }
+#navlist li {display: inline; list-style-type: none;text-align: center;}
+#navlist a:link, #navlist a:visited {color: black; text-decoration: none;}
+#navlist a:hover {color: black; text-decoration:none;}
+
+h1{
+        font-family:  Verdana;
+        font-size: 20px;
+        color:  #122929;
+        text-align: center;
+        
+        	}
+h3{
+        font-family:  Georgia;
+        font-size: 16px;
+        color:  #922929;
+        text-align: center;	}
+
+
+
+
+p{	
+	font-family:  Georgia;
+        font-size: 12px;
+        color: black;
+}
+#sidebar1 p{font-family:  Georgia;
+            font-size: 12px;
+            color: black;margin-left: 1px; margin-right:1px;}
+
+#content h1{
+        font-family:  Verdana;
+        font-size: 22px;
+        color:  #122929;
+        margin: 30px;
+        	}
+
+
+#content p{
+           font-family:  Georgia;
+            font-size: 16px;
+            color: black;margin-left: 1px; margin-right:1px;
+           }
+#content p.small
+           {
+          font-family:  Georgia;
+            font-size: 11px;
+            color: black;margin-left: 1px; margin-right:1px;
+           }
+
+#content p2{font-family:  Georgia;
+            font-size: 12px;
+            color: black;margin-left: 20px; margin-right:1px;}
+
+#content p3{font-family:  Georgia;
+            font-size: 12px;
+            color: black;margin-left: 1px; margin-right:1px;}
+
+
+
+#content p4{font-family:  Georgia;
+            font-size: 8px;
+            color: black;margin-left: 10px; margin-right:1px;
+            text-align: center;}
+
+
+
+
+.dropcap {
+  display:block;
+  float:left;
+  width:64px;
+  height:53px;
+  margin-right:5px;
+  }
+.dropcap span {display:none;}
+
+
+
+// thanks to http://www.webcredible.co.uk/user-friendly-resources/css/css-forms.shtml for help with these forms
+
+label
+{
+width: 40px;
+float: left;
+text-align: center;
+margin-right: 0.5em;
+display: block;
+}
+
+.submit input
+{
+margin-left: 4.5em;
+} 
+input
+{
+color: #103996;
+background: #d2b6bd;
+border: 1px solid #7398c3
+text-align: center;
+}
+
+fieldset.fs1
+{
+border: 1px solid #7398c3;
+width: 250px;
+border-radius:25px;
+}
+
+fieldset.fs2
+{
+border: 1px solid #039003;
+width: 250px;
+border-radius:25px;
+box-shadow: 10px 10px 5px #888888;
+}
+
+legend.up
+{
+color: #fff;
+background: #7300c3;
+
+border: 1px solid #103996;
+padding: 1px 16px;
+border-radius:25px;
+box-shadow: 5px 5px 3px #888888;
+}
+
+legend.down
+{
+color: #ff3;
+background: #0398c3;
+
+border: 1px solid #103996;
+padding: 1px 16px;
+border-radius:25px;
+box-shadow: 10px 10px 5px #888888;
+}

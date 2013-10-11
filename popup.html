@@ -1,0 +1,84 @@
+<!-- yalllinks, an example of a google chrome extension -->
+<!-- (C) Timothy Jones, October 2013 -->
+<!-- GNU Public license applies -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+ /* min-width:357px; */
+ 
+  overflow-x:hidden;
+}
+</style>
+
+<title>Tab-Snap</title> 
+<link rel="stylesheet" type="text/css" href="de.css" media="all" /> 
+<script src="jquery-2.0.3.min.js"></script>
+<script src="popup.js"></script>
+
+
+</head>
+
+<body>
+<div id="content">
+
+
+
+
+<div id="getem">
+<fieldset class="fs1">
+<legend class="up">SNAPSHOT</legend>
+
+<fieldset class="fs2">
+<form action="#">
+<!--<legend>Get list of tab URLs</legend>-->
+
+<div id="getgone"><label>Click here to get URLs.</label></div>
+</form>
+</fieldset>
+</div>
+<br>
+
+<fieldset class="fs1">
+<legend class="up">RESTORE</legend>
+<form action="#">
+<fieldset class="fs2">
+<div id="pastem">
+<label>Click here to paste URLs.</label>
+</div>
+</form>
+<!--
+<legend class="down">Paste and open list of URLs</legend>
+<br>
+<FORM NAME="myform" ACTION="" METHOD="GET"><p3>Paste (type: [Ctrl] v) list of URLs:</p3><BR>
+<INPUT TYPE="text" NAME="inputbox" VALUE="" SIZE=30>
+<button id="button1">Open List</button>
+</FORM>
+-->
+</fieldset>
+
+<h3>or</h3>
+<!--<form action="#">-->
+<fieldset class="fs2">
+<legend class="down">Open a text or csv file</legend>
+<input type="file" id="file" name="file" />
+<output id="list"></output>
+</fieldset>
+</fieldset>
+
+<!--<h1><img src="icon128.png" width="20px" style="margin:2px; margin-left:25px;"><i>Tab-Snap</i><img src="icon128.png" width="20px" style="margin:3px"></h1> -->
+
+<center>
+<p class="small"><a href="options.html">options</a></p>
+</center>
+
+</div>
+<textarea id="clipboardBuffer"></textarea>
+
+</body>
+
+ 
+</html>
+

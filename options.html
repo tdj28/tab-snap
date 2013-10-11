@@ -1,0 +1,98 @@
+<html>
+<head><title>Tab-Snap Options Page</title>
+<link rel="stylesheet" type="text/css" href="de.css" media="all" /> 
+
+<style>
+body {
+  min-width:257px;
+  overflow-x:hidden;
+}
+</style>
+</head>
+
+<body>
+
+<div id="content">
+
+<fieldset>
+<center>Tab-Snap</center>
+<!--<img src="icon128.png" width="20px" style="margin:3px"></h1> -->
+<h3>Output options:</h3>
+<center>
+<fieldset>
+<legend>1</legend>
+Select output format:<br>
+<select id="output1">
+
+ <option value="clipa">copy simple to clipboard</option>
+ <option value="clipb">copy text to clipboard</option>
+ <option value="gmail">gmail (up to 22 tabs)</option>
+ <option value="text">date, title, plus url text</option>
+ <option value="simple">simple url text</option>
+ <option value="csv1">csv: title, url</option>
+ <option value="csv2">csv: date, title, url</option>
+ <option value="csv3">csv: date, url</option>
+ 
+</select>
+</fieldset>
+
+<br>
+
+<fieldset>
+<legend>2</legend>
+Select output type:<br>
+<select id="output2">
+ <option value="screen">to screen</option>
+ <option value="file">to file</option>
+ 
+</select>
+</fieldset>
+
+<br>
+<fieldset>
+<legend>3</legend>
+<div id="status"></div>
+<button id="save">Save</button>
+</fieldset>
+</fieldset>
+
+<!--
+<br>
+<fieldset>
+<legend>4</legend>
+<p>Have fun!<p>
+</fieldset>
+</center>
+-->
+
+
+<br><br>
+<fieldset>
+<fieldset>
+<legend>Format</legend>
+<p><b>copy</b>: copy simple copies only URL links to the clipboard, 
+copy text copies titles and URLs to the clipboard.</p>
+<p><b>text</b>: simple text format with page titles and URLs</p>
+<p><b>csv</b>: format that can be opened in MS Excel and other database applications</p>
+<p><b>simple</b>: just the URLs</p>
+</fieldset>
+<br>
+
+<fieldset>
+<legend>Output</legend>
+<p>These options are not used when the user chooses to copy to clipboard or gmail for output format.</p>
+<p><b>screen</b>: prints to the screen; use can use Cntrl-a Cntrl-c to copy the contents and Cntrl-v to paste them. On Macs, this is Cmmnd-a Cmmnd-c to copy and Cmmnd-v to paste.  
+</p>
+<p><b>file</b>: prints to file which will be named based on the date with
+prefix "Tab_Snap" and extension ".csv" for csv formats or ".txt" for text format.</p>
+
+</fieldset>
+</fieldset>
+
+</div>
+</body>
+
+
+<script src="options.js"></script>
+
+</html>
