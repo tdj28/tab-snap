@@ -8,6 +8,8 @@ function save_options() {
   var output2 = select.children[select.selectedIndex].value;
   localStorage["output_choice2"] = output2;
 
+  
+
   // Update status to let user know options were saved.
   var status = document.getElementById("status");
   status.innerHTML = "Options Saved.";
@@ -15,6 +17,22 @@ function save_options() {
     status.innerHTML = "";
   }, 750);
 }
+
+function save_options2() {
+ 
+  var text = document.getElementById("emailadded");
+  var emailadd = text.value;
+  localStorage["output_emailadd"] = emailadd;
+  
+   // Update status to let user know options were saved.
+  var status = document.getElementById("status2");
+  status.innerHTML = "Options Saved.";
+  setTimeout(function() {
+    status.innerHTML = "";
+  }, 750);
+
+}
+   
 
 // Restores select box state to saved value from localStorage.
 function restore_options() {
@@ -45,6 +63,12 @@ function restore_options() {
     }
   }
 
+
+ 
+  
+
+
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.querySelector('#save').addEventListener('click', save_options);
+document.querySelector('#save2').addEventListener('click', save_options2);

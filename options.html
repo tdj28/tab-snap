@@ -27,6 +27,7 @@ Select output format:<br>
  <option value="clipa">copy simple to clipboard</option>
  <option value="clipb">copy text to clipboard</option>
  <option value="gmail">gmail (up to 22 tabs)</option>
+ <option value="gmail2">blank gmail with unlimited urls copied to clipboard</option>
  <option value="text">date, title, plus url text</option>
  <option value="simple">simple url text</option>
  <option value="csv1">csv: title, url</option>
@@ -75,6 +76,21 @@ copy text copies titles and URLs to the clipboard.</p>
 <p><b>text</b>: simple text format with page titles and URLs</p>
 <p><b>csv</b>: format that can be opened in MS Excel and other database applications</p>
 <p><b>simple</b>: just the URLs</p>
+<p><b>gmail</b>: the first gmail option is for prefilled compose window
+but limited to up to about 22 tabs due to gmail limitations, the second
+gmail option sets up a compose window and copies an unlimited amount of 
+tab title and urls to the clipboard so that 
+all you have to do is paste into the body of the gmail compose window. If you want
+the gmail option to also fill in recipients, select here:
+<fieldset>
+<legend>Optional</legend>
+Gmail auto-fill recipient field:
+<form>
+Send to: <input type="text" name="emailadded" id="emailadded"><br>
+<button id="save2">Save</button>
+<div id="status2"></div>
+</form>
+</fieldset>
 </fieldset>
 <br>
 

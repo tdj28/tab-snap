@@ -17,7 +17,7 @@ function geturls(){
 
   var favorite1 = localStorage["output_choice1"];
   if (!favorite1) {
-    var favorite1="clipa";
+    var favorite1="text";
   }
 
 var favorite2 = localStorage["output_choice2"];
@@ -25,6 +25,10 @@ var favorite2 = localStorage["output_choice2"];
     var favorite2="screen";
   }
 
+var emailadd = localStorage["output_emailadd"];
+  if(!emailadd) {
+      var emailadd="";
+}
 
 if(favorite1=="clipa"){
 window.myCsv='';
@@ -226,7 +230,7 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
 				     subjectall+="AM";}
 
                             // var action_url = "mailto:?"+"subject="+encodeURIComponent(subjectall)+"&"+"body=";
-		             var action_url = "https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&su="+encodeURIComponent(subjectall)+"&"+"body=";
+		             var action_url = "https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to="+emailadd+"&su="+encodeURIComponent(subjectall)+"&"+"body=";
                              tabs.forEach(function(tab){
                                  var temptest=tab.url.split(":");
                                  
@@ -247,6 +251,78 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
 
 }
 
+
+
+if(favorite1=="gmail2"){
+window.myCsv='';
+chrome.tabs.query({'currentWindow': true}, function(tabs) {
+                             
+                             var curDate = new Date(); 
+                             var currentTime = new Date();
+                             var month = currentTime.getMonth() + 1;
+                             var day = currentTime.getDate();
+                             var wday = currentTime.getDay();
+                             var year = currentTime.getFullYear();
+                             var hours = currentTime.getHours();
+                             var minutes = currentTime.getMinutes();
+                             if (minutes < 10){minutes = "0" + minutes;}
+                             var monthname=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+			     var weekday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+    
+                             var subjectall="URL List from ";
+                             subjectall+=weekday[wday] + ", " + monthname[currentTime.getMonth()] + ". "+day + " " + year+" "+hours + ":" + minutes + " ";
+                             
+
+			     
+				 if(hours > 11){
+				     subjectall+="PM";
+				    
+				 } else {
+				     subjectall+="AM";}
+
+                            // var action_url = "mailto:?"+"subject="+encodeURIComponent(subjectall)+"&"+"body=";
+		             var action_url = "https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to="+emailadd+"&su="+encodeURIComponent(subjectall)+"&"+"body=";
+                            // tabs.forEach(function(tab){
+                          //       var temptest=tab.url.split(":");
+                                 
+                                 // exclude chrome links   
+                          //       if(temptest[0]!="chrome" && temptest[0]!="chrome-extension"){
+                                
+                                // action_url+=encodeURIComponent(tab.title)+"+"+encodeURIComponent("\n\n")+"+"+encodeURIComponent(tab.url)+"+"+encodeURIComponent("\n\n")+"+";
+                            //     action_url+=encodeURIComponent(tab.url)+"+"+encodeURIComponent("\n\n")+"+";
+			//	}
+
+              //  });
+
+// var gmaillink = "https://mail.google.com/mail/?extsrc=mailto&url=%s"
+// action_url = gmaillink.replace("%s",encodeURIComponent(action_url));
+
+         tabs.forEach(function(tab){
+                                 var temptest=tab.url.split(":");
+
+                                 if(temptest[0]!="chrome" && temptest[0]!="chrome-extension"){
+                                		
+				     window.myCsv+=tab.title+':\n'+tab.url+'\n\n'; 
+			
+                                 }
+
+                });
+
+
+       	clipboardBuffer.val(window.myCsv);
+	clipboardBuffer.select();
+	document.execCommand('copy');
+       
+	jQuery('#getgone').html("URLs copied!");
+       
+
+              
+
+ chrome.tabs.create({ url: action_url });
+
+             });
+
+}
 
 if(favorite1=="simple"){
 window.myCsv='';
@@ -502,6 +578,7 @@ if(favorite2=="file"){
 
 }  //ends getURLs
 
+/*
 function testResults(){
 
   clipboardBuffer.val('');
@@ -545,6 +622,106 @@ function testResults(){
   });
   
    // console.log("hey");
+}
+*/
+
+function testResults(){
+
+  window.contents = this.form.inputbox.value;
+  chrome.tabs.query({'currentWindow': true}, function(tabs) { 
+ 
+  var lines = window.contents.split(/[\r\n|\n]+/);
+               var firstr=[];
+              var secstr=[];
+                window.openthistab=false;
+                for(i=0;i<lines.length;i++) {
+                     
+                      lines[i]=lines[i].replace(/["']/g,' ');
+                      lines[i]=lines[i].replace(/(\r\n|\n|\r)/gm," ");;
+                                           
+                      firstr = lines[i].split(/\s+/g);
+		      window.openthistab=false;
+                      // Useful rows now:
+                      for(j=0;j<firstr.length;j++){
+                          
+                           secstr=firstr[j].split(":");
+                           var tempo=firstr[j];
+                           if(secstr[0]=="http" || secstr[0]=="https" || secstr[0]=="ftp"){
+                                window.openthistab=true;
+                              // console.log("test");
+                                //   console.log(window.openthistab);	
+                               tabs.forEach(function(tab){ if(tab.url == tempo){window.openthistab = false;}});
+                               //console.log(window.openthistab);
+                                     						                                           
+			       if(window.openthistab){window.openthese.push(firstr[j]); console.log("pushed");}//chrome.tabs.create({'url': firstr[j]},function(){});}  //firstr[j]
+                           }
+		      }
+		}
+     gogo()
+  });
+  
+    console.log("hey");
+}
+	
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+function gogo(){
+
+ console.log(window.openthese.length);
+    var j=0;
+    while(j<window.openthese.length){
+        for(k=j;k<(j+1);k++){
+            chrome.tabs.create({'url': window.openthese[k]},function(){});
+        }
+        j=j+1;
+    }
+}
+
+
+
+function testResults(){
+
+  window.contents = this.form.inputbox.value;
+  chrome.tabs.query({'currentWindow': true}, function(tabs) { 
+ 
+  var lines = window.contents.split(/[\r\n|\n]+/);
+               var firstr=[];
+              var secstr=[];
+                window.openthistab=false;
+                for(i=0;i<lines.length;i++) {
+                     
+                      lines[i]=lines[i].replace(/["']/g,' ');
+                      lines[i]=lines[i].replace(/(\r\n|\n|\r)/gm," ");;
+                                           
+                      firstr = lines[i].split(/\s+/g);
+		      window.openthistab=false;
+                      // Useful rows now:
+                      for(j=0;j<firstr.length;j++){
+                          
+                           secstr=firstr[j].split(":");
+                           var tempo=firstr[j];
+                           if(secstr[0]=="http" || secstr[0]=="https" || secstr[0]=="ftp"){
+                                window.openthistab=true;
+                              // console.log("test");
+                                //   console.log(window.openthistab);	
+                               tabs.forEach(function(tab){ if(tab.url == tempo){window.openthistab = false;}});
+                               //console.log(window.openthistab);
+                                     						                                           
+			       if(window.openthistab){window.openthese.push(firstr[j]); console.log("pushed");}//chrome.tabs.create({'url': firstr[j]},function(){});}  //firstr[j]
+                           }
+		      }
+		}
+     gogo()
+  });
+  
+    console.log("hey");
 }
 		
 function handleFileSelect(evt) {
@@ -599,10 +776,12 @@ function handleFileSelect(evt) {
 function gogo(){
   
  console.log(window.openthese.length);
-    for(k=0;k<window.openthese.length;k++){
-  
-         console.log(window.openthese[k]);
-        chrome.tabs.create({'url': window.openthese[k]},function(){});
+    var j=0;
+    while(j<window.openthese.length){
+        for(k=j;k<(j+1);k++){
+            chrome.tabs.create({'url': window.openthese[k]},function(){});
+        }
+        j=j+1;
     }
 }
 
@@ -611,7 +790,8 @@ function gogo(){
 document.addEventListener('DOMContentLoaded', function(){
 console.log("sup");
 document.getElementById("getem").addEventListener('click', geturls);
-document.getElementById("pastem").addEventListener('click',testResults);
+//document.getElementById("pastem").addEventListener('click',testResults);
+document.getElementById("button1").addEventListener('click',testResults);
 document.getElementById('file').addEventListener('change',handleFileSelect);
 
 });
