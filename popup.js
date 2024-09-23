@@ -32,7 +32,7 @@ var emailadd = localStorage["output_emailadd"];
 
 if(favorite1=="clipa"){
 window.myCsv='';
-chrome.tabs.query({'currentWindow': true}, function(tabs) {
+chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                          
                              tabs.forEach(function(tab){
                                  var temptest=tab.url.split(":");
@@ -54,7 +54,7 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
 
 if(favorite1=="clipb"){
 window.myCsv='';
-chrome.tabs.query({'currentWindow': true}, function(tabs) {
+chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                            
                              var curDate = new Date(); 
                              var currentTime = new Date();
@@ -113,7 +113,7 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
  
 if(favorite1=="text"){
 window.myCsv='';
-chrome.tabs.query({'currentWindow': true}, function(tabs) {
+chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                              
                              var curDate = new Date(); 
                              var currentTime = new Date();
@@ -204,7 +204,7 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
 
 if(favorite1=="gmail"){
 
-chrome.tabs.query({'currentWindow': true}, function(tabs) {
+chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                              
                              var curDate = new Date(); 
                              var currentTime = new Date();
@@ -255,7 +255,7 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
 
 if(favorite1=="gmail2"){
 window.myCsv='';
-chrome.tabs.query({'currentWindow': true}, function(tabs) {
+chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                              
                              var curDate = new Date(); 
                              var currentTime = new Date();
@@ -326,7 +326,7 @@ chrome.tabs.query({'currentWindow': true}, function(tabs) {
 
 if(favorite1=="simple"){
 window.myCsv='';
-  chrome.tabs.query({'currentWindow': true}, function(tabs) {
+  chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                           
                              tabs.forEach(function(tab){
   var temptest=tab.url.split(":");
@@ -389,7 +389,7 @@ if(favorite2=="file"){
 
 if(favorite1=="csv1"){
 
-  chrome.tabs.query({'currentWindow': true}, function(tabs) {
+  chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
  window.myCsv='';
                              tabs.forEach(function(tab){
                               
@@ -453,7 +453,7 @@ if(favorite1=="csv2"){
 
 
 
-  chrome.tabs.query({'currentWindow': true}, function(tabs) {
+  chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                              window.myCsv='';
                              var curDate = new Date(); 
                              var currentTime = new Date();
@@ -511,7 +511,7 @@ if(favorite2=="file"){
 
 if(favorite1=="csv3"){
 
-  chrome.tabs.query({'currentWindow': true}, function(tabs) {
+  chrome.tabs.query({'currentWindow': true}).then(function(tabs) {
                    
                              window.myCsv='';
                              var curDate = new Date(); 
@@ -628,7 +628,7 @@ function testResults(){
 function testResults(){
 
   window.contents = this.form.inputbox.value;
-  chrome.tabs.query({'currentWindow': true}, function(tabs) { 
+  chrome.tabs.query({'currentWindow': true}).then(function(tabs) { 
  
   var lines = window.contents.split(/[\r\n|\n]+/);
                var firstr=[];
@@ -689,7 +689,7 @@ function gogo(){
 function testResults(){
 
   window.contents = this.form.inputbox.value;
-  chrome.tabs.query({'currentWindow': true}, function(tabs) { 
+  chrome.tabs.query({'currentWindow': true}).then(function(tabs) { 
  
   var lines = window.contents.split(/[\r\n|\n]+/);
                var firstr=[];
@@ -725,7 +725,7 @@ function testResults(){
 }
 		
 function handleFileSelect(evt) {
- chrome.tabs.query({'currentWindow': true}, function(tabs) { 
+ chrome.tabs.query({'currentWindow': true}).then(function(tabs) { 
   console.log("here");
   var f = evt.target.files[0]; 
    // back.dothis.try(evt);//evt.target.files[0]; 
